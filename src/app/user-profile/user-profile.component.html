@@ -1,0 +1,118 @@
+<div class="main-content" style="margin-top: 100px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">حسابي الشخصي</h4>
+            <p class="card-category">تغيير البيانات الأساسية</p>
+          </div>
+          <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="formSubmit(f)">
+              <div class="form-group">
+                <label class="bmd-label-floating" for="float-firstname">الاسم الأول</label><br />
+                <input matInput id="float-firstname" size="30" type="text" ngModel name="firstname"
+                  #firstname="ngModel" class="form-control" (keyup.enter)="formSubmit(f)" 
+                  />
+                <div *ngIf="firstname.touched && !firstname.valid" class="alert alert-danger">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="float-lastname">الكنية</label><br />
+                <input id="float-lastname" size="30" type="text" ngModel name="lastname" #lastname="ngModel"
+                  class="form-control" (keyup.enter)="formSubmit(f)"/>
+                <div *ngIf="lastname.touched && !lastname.valid" class="alert alert-danger">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="float-input">البريد الإلكتروني</label><br />
+                <input id="float-input" size="30" type="email" ngModel name="username" #username="ngModel"
+                  pattern="^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$" class="form-control"
+                  (keyup.enter)="formSubmit(f)"/>
+                <div *ngIf="username.touched && !username.valid" class="alert alert-danger">
+                  <div *ngIf="username.errors.pattern">
+                    رجاء أدخل بريد إلكتروني صحيح
+                  </div>
+                </div>
+              </div>
+
+              <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn btn-danger pull-right">تحديث
+                البيانات</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+
+          </div>
+          <div class="card-body">
+            <!-- <h6 class="card-category text-gray">CEO / Co-Founder</h6> -->
+            <h4 class="card-title"> تغيير كلمة السر</h4>
+            <p class="card-description">
+              <!-- رجاء أدخل كلمة السر الحالية، ثم كلمة السر الجديدة -->
+            </p>
+            <form #f1="ngForm" (ngSubmit)="form1Submit(f1)">
+                <!-- <div class="form-group">
+                    <label for="float-pass">كلمة السر الحالية</label><br />
+                    <input id="float-pass" type="password" size="30" ngModel name="oldpassword" #oldpassword="ngModel"
+                      [ngClass]="{'is-invalid' : oldpassword.touched && !oldpassword.valid}" class="form-control"
+                      (keyup.enter)="form1Submit(f1)" required />
+                    <mat-hint align="end" aria-live="polite">
+                      {{oldpassword.value.length}} / 25
+                    </mat-hint>
+                    <mat-password-strength #passwordComponent [password]="oldpassword.value">
+                    </mat-password-strength>
+                    <div *ngIf="oldpassword.touched && !oldpassword.valid" class="alert alert-danger">
+                      <div *ngIf="oldpassword.errors.required">
+                        حقل إجباري
+                      </div>
+                    </div>
+                  </div> -->
+              <div class="form-group">
+                <label for="float-pass1">كلمة السر</label><br />
+                <input id="float-pass1" type="password" size="30" ngModel name="password" #password="ngModel"
+                  [ngClass]="{'is-invalid' : password.touched && !password.valid}" minlength="8" class="form-control"
+                  pattern="^\S{8,}$" (keyup.enter)="form1Submit(f1)" required />
+                <mat-hint align="end" aria-live="polite">
+                  {{password.value.length}} / 25
+                </mat-hint>
+                <mat-password-strength #passwordComponent [password]="password.value">
+                </mat-password-strength>
+                <div *ngIf="password.touched && !password.valid" class="alert alert-danger">
+                  <div *ngIf="password.errors.required">
+                    حقل إجباري
+                  </div>
+                  <div *ngIf="password.errors.minlength">
+                    الحد الأدنى 8 محارف
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="float-password_two">تكرار الكلمة </label><br />
+                <input id="float-password_two" type="password" size="30" ngModel name="password_two"
+                  #password_two="ngModel" [ngClass]="{'is-invalid' : password_two.touched && !password_two.valid}" minlength="8"
+                  class="form-control" pattern="{{ password.value }}" (keyup.enter)="form1Submit(f1)" required />
+                <div *ngIf="password_two.touched && !password_two.valid" class="alert alert-danger">
+                  <div *ngIf="password_two.errors.required">
+                    حقل إجباري
+                  </div>
+                  <div *ngIf="password_two.errors.minlength">
+                    الحد الأدنى 8 محارف
+                  </div>
+                  <div *ngIf="password_two.errors.pattern">
+                    كلمة السر ليست متطابقة
+                  </div>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" [disabled]="!f1.valid" class="btn btn-danger pull-right">تحديث
+                البيانات</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

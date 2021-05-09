@@ -1,0 +1,67 @@
+<!-- <div style="margin-top: 50px;"></div> -->
+
+<section id="header">
+  <h1>الـدّورات</h1>
+  <br>
+  <p>
+    إن من أولويات رسالة توفير التعليم والتدريب المهني للشباب <br />
+    بأعلى مستوى من الكفاءةالمهنية للعمل في المنشآت والمصانع وجميع القطاعات التي تتطلب مثل هذه النخبة
+  </p>
+</section>
+
+<section id="groups-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 ">
+        <mat-tab-group dynamicHeight>
+          <mat-tab *ngFor="let group of myGroups"  label="{{group.name}}">
+              <group-rooms [groupId]="group.id"></group-rooms>
+          </mat-tab>
+          <mat-tab *ngFor="let ogroup of otherGroups" label="{{ogroup.name}}">
+              <button class="btn btn-primary" (click)="join(ogroup.id)">انضمام</button>
+          </mat-tab>
+        </mat-tab-group>
+        <!-- <nav>
+          <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+
+            <a *ngFor="let group of myGroups" class="nav-item nav-link active" id="nav-my-groups-tab-{{group.id}}"
+              data-toggle="tab" href="#nav-my-groups-{{group.id}}" role="tab" aria-controls="nav-my-groups"
+              aria-selected="true">{{group.name}}</a>
+
+            <a *ngFor="let ogroup of otherGroups" class="nav-item nav-link" id="nav-other-group-tab-{{ogroup.id}}"
+              data-toggle="tab" href="#nav-other-group-{{ogroup.id}}" role="tab" aria-controls="nav-profile"
+              aria-selected="false">{{ogroup.name}}</a>
+
+          </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+          <div class="tab-pane fade show tab-inner-content" id="nav-my-groups-{{group.id}}" role="tabpanel"
+            aria-labelledby="nav-my-groups-tab-{{group.id}}" *ngFor="let group of myGroups">
+            <group-rooms [groupId]="group.id"></group-rooms>
+            <!-- <a routerLink="/rooms/{{group.id}}/view">استعراض الغرف</a> -->
+          <!-- </div>
+          <div *ngFor="let ogroup of otherGroups" class="tab-pane fade tab-inner-content"
+            id="nav-other-group-{{ogroup.id}}" role="tabpanel" aria-labelledby="nav-other-group-tab-{{ogroup.id}}">
+            <button class="btn btn-primary" (click)="join(ogroup.id)">انضمام</button>
+          </div>
+
+        </div> --> 
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <h2>مجموعاتي</h2>
+<p *ngFor="let group of myGroups">
+  group : {{ group.name }} <a routerLink="/rooms/{{group.id}}/view">استعراض الغرف</a>
+</p>
+
+<h2>مجموعات لست مشتركاً فيها بعد</h2>
+<p *ngFor="let ogroup of otherGroups">
+  ogroup : {{ ogroup.name }}
+  <button class="btn btn-primary">انضمام</button>
+</p> -->
+
+
+<app-footer></app-footer>

@@ -1,0 +1,92 @@
+<div class="row login">
+  <div class="col-xs-12 col-md-4">
+    <div class="login-form">
+      <form #f="ngForm" (ngSubmit)="formSubmit(f)">
+        <h4>
+          منصة زوون التعليمية
+        </h4>
+        <div class="form-group">
+            <label for="float-firstname">الاسم الأول</label><br />
+            <input id="float-firstname" size="30" type="text" required ngModel name="firstname" #firstname="ngModel"
+              class="form-control"
+              (keyup.enter)="formSubmit(f)" />
+            <div *ngIf="firstname.touched && !firstname.valid" class="alert alert-danger">
+              <div *ngIf="firstname.errors.required">
+                حقل إجباري
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="float-lastname">الكنية</label><br />
+            <input id="float-lastname" size="30" type="text" required ngModel name="lastname" #lastname="ngModel"
+              class="form-control"
+              (keyup.enter)="formSubmit(f)" />
+            <div *ngIf="lastname.touched && !lastname.valid" class="alert alert-danger">
+              <div *ngIf="lastname.errors.required">
+                حقل إجباري
+              </div>
+            </div>
+          </div>
+        <div class="form-group">
+          <label for="float-input">البريد الإلكتروني</label><br />
+          <input id="float-input" size="30" type="email" required ngModel name="username" #username="ngModel"
+            pattern="^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$" class="form-control"
+            (keyup.enter)="formSubmit(f)" />
+          <div *ngIf="username.touched && !username.valid" class="alert alert-danger">
+            <div *ngIf="username.errors.required">
+              حقل إجباري
+            </div>
+            <div *ngIf="username.errors.pattern">
+              رجاء أدخل بريد إلكتروني صحيح
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="float-pass">كلمة السر</label><br />
+          <input id="float-pass" type="password" size="30" ngModel name="password" #password="ngModel"
+            [ngClass]="{'is-invalid' : password.touched && !password.valid}" minlength="8" class="form-control"
+            pattern="^\S{8,}$" (keyup.enter)="formSubmit(f)" required />
+            <mat-hint align="end" aria-live="polite">
+              {{password.value.length}} / 25
+            </mat-hint>
+            <mat-password-strength #passwordComponent
+                                   [password]="password.value">
+            </mat-password-strength>
+          <div *ngIf="password.touched && !password.valid" class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+              حقل إجباري
+            </div>
+            <div *ngIf="password.errors.minlength">
+              الحد الأدنى 8 محارف
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="float-password_two">تكرار الكلمة </label><br />
+            <input id="float-password_two" type="password" size="30" ngModel name="password_two" #password_two="ngModel"
+              [ngClass]="{'is-invalid' : password.touched && !password.valid}" minlength="8" class="form-control"
+              pattern="{{ password.value }}" (keyup.enter)="formSubmit(f)" required />
+            <div *ngIf="password_two.touched && !password_two.valid" class="alert alert-danger">
+              <div *ngIf="password_two.errors.required">
+                حقل إجباري
+              </div>
+              <div *ngIf="password_two.errors.minlength">
+                الحد الأدنى 8 محارف
+              </div>
+              <div *ngIf="password_two.errors.pattern">
+                كلمة السر ليست متطابقة
+              </div>
+            </div>
+          </div>
+        <button class="btn btn-primary btn-block" [disabled]="!f.valid">تسجيل </button>
+      </form>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-8">
+    <p class="text-center"><b class="text-center-header">أهلا وسهلا بك في منصة التعليم </b><br>إن من أولويات رسالة
+      توفير التعليم والتدريب المهني للشباب باعلى مستوى من الكفاءة المهنية للعمل في المنشآت والمصانع وجميع القطاعات
+      التي تتطلب وجود مثل هذة النخبة </p>
+  </div>
+
+
+</div>

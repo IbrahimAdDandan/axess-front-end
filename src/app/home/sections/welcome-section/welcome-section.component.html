@@ -1,0 +1,28 @@
+<section id="welcom">
+  <div class="row" id="welcom">
+    <div class="col-xs-12 col-lg-7 p">
+      <h1>
+        نأخذ التعلم
+      </h1>
+      <h2>
+        إلى آفــاق جديــدة
+      </h2>
+      <br />
+      <p>
+        إن من أولويات رسالتنا
+        توفير التعليم والتدريب بأعلى مستوى من الجودة والكفاءة المهنية.. ومواكبة تكنولوجيا التعليم والتدريب في العالم
+      </p>
+      <br />
+      <div class="row">
+        <button *ngIf="!LoggedIn()" class="btn btn-primary inner-btn" (click)="goToCalendar()"
+          style="margin-left: 5px; margin-right: 5px;">احجز غرفتك التدريبية الآن</button>
+        <button *ngIf="!LoggedIn()" class="btn btn-primary inner-btn" (click)="goToGroups()">
+          أنشئ مجموعة الآن
+        </button>
+      </div>
+    </div>
+    <div class="col-xs-12 col-lg-5">
+      <img src="assets/imgs/011.png" alt="" class="responsive-image" width="70%">
+    </div>
+  </div>
+</section>

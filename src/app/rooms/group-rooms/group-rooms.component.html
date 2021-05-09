@@ -1,0 +1,17 @@
+
+    
+<h2>الغرف</h2>
+<ul>
+    <!-- <li *ngFor="let room of rooms">
+        <p>
+            {{ room.name }} - {{room.comment}}
+            <a (click)="enterRoom(room.id)" target="_blank">دخول</a>
+          </p>
+    </li> -->
+    <li *ngFor="let appoint of invit">
+        <p *ngIf="appoint">
+            {{ appoint.title }} - {{appoint.description}}
+            <a (click)="enterRoom(appoint.room.id)" target="_blank">دخول</a>
+          </p>
+    </li>
+</ul>

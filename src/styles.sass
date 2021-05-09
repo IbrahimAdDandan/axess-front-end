@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css'
+// $fa-font-path: "~font-awesome/fonts"
+// @import '~font-awesome/scss/font-awesome'
+
+@font-face
+    font-family: 'arabic',
+    src: url(assets/fonts/arabicmoder.otf) format("opentype")
+
+
+@font-face
+    font-family: 'Arabic',
+    src: url(assets/fonts/ArabicModern.ttf) format("truetype")
+
+$main-color: #ED1B24
+$dark-color: #7E2020
+
+
+html, body
+    font-family: 'arabic', 'Arabic', Arial, "Noto Sans", sans-serif !important
+    text-align: right !important
+    // height: 100%
+
+h1, h2 ,h3, h4, h5, h6, p, label, ul, li, ol, a, span
+    font-family: 'arabic', 'Arabic', Arial, "Noto Sans", sans-serif !important
+    text-align: right !important
+
+button
+    font-family: 'arabic', 'Arabic', Arial, "Noto Sans", sans-serif !important
+
+a
+    color: $main-color !important
+
+a:hover
+    color: $main-color !important
+    border-bottom: 1px solid $main-color
+    padding-bottom: 2px
+
+.active > .nav-link
+    color: $main-color !important
+    border-bottom: 1px solid $main-color
+    padding-bottom: 2px
+
+.bg-light
+    background-color: rgba(255, 255, 255, 0.7) !important
+
+.btn-primary
+    background-color: $main-color !important
+    border: $main-color
+    box-shadow: 1px 1px 2px $main-color
+
+.btn-primary:hover
+    background-color: $dark-color !important
+    border: $dark-color
+    box-shadow: 1px 1px 2px $dark-color
+
+.inner-btn
+    border-radius: 45px
+    padding: 5%
+
+.mat-typography
+    font: 400 16px/40px 'arabic', 'Arabic',Roboto, "Helvetica Neue", sans-serif
+
+.main-title
+    color: $main-color
+    font-size: 24px !important
+    font-weight: 800 !important

@@ -1,0 +1,9 @@
+
+
+
+<h2>الغرف</h2>
+<p *ngFor="let room of rooms">
+  Room : {{ room.name }} 
+  <a (click)="enterRoom(room.id)" target="_blank">دخول</a>
+  <!-- <a href="http://localhost:5080/openmeetings/#room/{{room.id}}" target="_blank">دخول</a> -->
+</p>

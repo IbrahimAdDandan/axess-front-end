@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="main-title">
+      اتصل بنا
+    </h1>
+  </div>
+  <div class="col-md-8">
+    <mat-card>
+      <div class="row container">
+        <form class="col-12" #f="ngForm" (ngSubmit)="formSubmit(f)">
+          <div class="row">
+            <div class="col-6 form-group">
+              <label for="float-input">شكوى</label><br />
+              <input id="float-input" type="text" name="complain" [(ngModel)]="complain"/>
+            </div>
+            <div class="col-6 form-group">
+              <label for="float-input">اقتراح</label><br />
+              <input id="float-input" type="text" name="suggestion" [(ngModel)]="suggestion"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 form-group">
+              <label for="float-input">البريد الإلكتروني</label><br />
+              <input id="float-input" type="text" name="mail" [(ngModel)]="mail"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 form-group">
+              <label for="float-input">ملاحظة</label><br />
+              <textarea id="float-input" name="notice" [(ngModel)]="notice"></textarea>
+            </div>
+          </div>
+          <br/>
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-4">
+              <button class="btn btn-primary btn-block">إرسال</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-md-4">
+    <mat-card>
+      <div class="col-12">
+        <h1 class="text-uppercase">
+          Edu Room AXESS
+        </h1>
+          <p>الأردن</p>
+          <p>هاتف: 962799144432</p>
+          <p style="height: 9px;"></p>
+      </div>
+      <div class="col-12">
+        <agm-map [latitude]="31.9539" [longitude]="35.9106">
+          <!-- <agm-marker [latitude]="59.326242" [longitude]="17.8419719">
+                      <agm-info-window>Börk</agm-info-window>
+                    </agm-marker> -->
+        </agm-map>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="row login">
+  <!-- <div class="col-1"></div> -->
+  <div class="col-xs-12 col-md-4">
+    <div class="login-form">
+      <form #f="ngForm" (ngSubmit)="formSubmit(f)">
+        <h4>
+          منصة زوون التعليمية
+        </h4>
+        <br/>
+        <div class="form-group">
+          <label for="float-input">البريد الإلكتروني</label><br />
+          <input id="float-input" size="30" type="email" required ngModel name="username" #username="ngModel"
+            pattern="^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$" class="form-control"
+            (keyup.enter)="formSubmit(f)" />
+          <div *ngIf="username.touched && !username.valid" class="alert alert-danger">
+            <div *ngIf="username.errors.required">
+              حقل إجباري
+            </div>
+            <div *ngIf="username.errors.pattern">
+              رجاء أدخل بريد إلكتروني صحيح
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="float-pass">كلمة السر</label><br />
+          <input id="float-pass" type="password" size="30" ngModel name="password" #password="ngModel"
+          [ngClass]="{'is-invalid' : password.touched && !password.valid}" 
+          minlength="8" class="form-control"
+            (keyup.enter)="formSubmit(f)" required/>
+            <div *ngIf="password.touched && !password.valid" class="alert alert-danger">
+              <div *ngIf="password.errors.required">
+                حقل إجباري
+              </div>
+              <div *ngIf="password.errors.minlength">
+                الحد الأدنى 8 محارف
+              </div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block" [disabled]="!f.valid">تسجيل دخول</button>
+        <br/>
+        <p>ليس لديك حساب؟ <a class="link" routerLink="/security/register">تسجيل حساب جديد</a></p>
+        <p><a class="link" (click)="forgotPass(f)">نسيت كلمة السر؟</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-8">
+    <p class="text-center"><b class="text-center-header">أهلا وسهلا بك في منصة التعليم </b><br>إن من أولويات رسالة
+      توفير التعليم والتدريب المهني للشباب باعلى مستوى من الكفاءة المهنية للعمل في المنشءات والمصانع وجميع القطاعات
+      التي تتطلب وجود مثل هذة المخبة </p>
+  </div>
+
+
+</div>
